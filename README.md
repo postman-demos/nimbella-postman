@@ -12,11 +12,23 @@ To be able to get hands on with this project you will need two things:
 - [Postman](https://www.postman.com/) - You will need to have signed up and downloaded Postman.
 - [Nimbella](https://nimbella.com/signup) - You will need to have signed up for Nimbella and downloaded the CLI.
 
-**Authenticate**: `nim login`
+**Authenticate**:
+```
+nim login
+```
 
-**Install Postman Plugin:** `nim plugins add postman`
+**Install Postman Plugin**:
+```
+nim plugins add postman
+```
 
 **Postman Key**: [From Your Account](https://go.postman.co/integrations/services/pm_pro_api)
+- You will need your Postman API key when generating a project for your APIs on your machine.
+- You will be prompted to enter the API key when it is needed.
+- You can configure the Nimbella CLI to use your Postman API key by running the following command. The key is only stored locally on your machine.
+```
+nim auth postman --add --name mykey --key <Postman API key>
+```
 
 Now that you have Postman and Nimbella installed, are authenticated,
 and added the Postman plugin you should be ready to deploy your
@@ -34,13 +46,44 @@ A simple products API using the Schema.org products object — click to run in y
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5c58b258f4940254570b)
 
-**Create Project**: `nim project create -s postman -i Products --language js`
+**Create Project**:
+```
+nim project create -s postman -i Products --language js
+```
 
-**Deploy Project**: `nim project deploy products`
+**Deploy Project**:
+```
+nim project deploy products
+```
 
 - You should see a project created locally on your machine in a directory called `products`.
 - In the root of the `products` directory, there is a Postman collection.
 - Go ahead an import it into Postman, and you should be able to use your new API.
+
+We created 4 branches which incrementally implement the APIs in this example. We also added a simple Web page to complete the project. You can deploy each of these branchs yourself directly from the GitHub repo as shown in the commands below. You can run these commands from your terminal, and even from the [Nimbella Workbench](https://apigcp.nimbella.io/wb).
+
+1. [`step0-nimbella-project`](https://github.com/rabbah/nimbella-postman/tree/step0-nimbella-project): The Nimbella project resulting from the `nim project create` command above.
+```
+nim project deploy github:rabbah/nimbella-postman/products#step0-nimbella-project
+```
+2. [`step1-add-product`](https://github.com/rabbah/nimbella-postman/tree/step1-add-product): Implements `POST /products` to add a product to a Nimbella integrated database.
+```
+nim project deploy github:rabbah/nimbella-postman/products#step1-add-product
+```
+3. [`step2-get-products`](https://github.com/rabbah/nimbella-postman/tree/step2-get-products): Implements `GET /products` to list all added products.
+```
+nim project deploy github:rabbah/nimbella-postman/products#step2-get-products
+```
+4. [`step3-get-single-product`](https://github.com/rabbah/nimbella-postman/tree/step3-get-single-product): Implements `GET /products/:productid` to get a specific product.
+```
+nim project deploy github:rabbah/nimbella-postman/products#step3-get-single-product
+```
+5. [`step4-web-ui`](https://github.com/rabbah/nimbella-postman/tree/step4-web-ui): Add a simple web page to render the added products.
+```
+nim project deploy github:rabbah/nimbella-postman/products#step4-web-ui
+```
+
+When you have completed the last step, open your browser to the URL shown in the deploy message to see the results.
 
 ___
 
@@ -49,9 +92,15 @@ A simple products API using the Schema.org products object — click to run in y
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/89cc94a608f66bee4b1e)
 
-**Create Project**: `nim project create -s postman -i Persons --language js`
+**Create Project**:
+```
+nim project create -s postman -i Persons --language js
+```
 
-**Deploy Project**: `nim project deploy persons`
+**Deploy Project**:
+```
+nim project deploy persons
+```
 
 - You should see a project created locally on your machine in a directory called `persons`.
 - In the root of the `persons` directory, there is a Postman collection.
@@ -64,9 +113,15 @@ A simple products API using the Schema.org products object — click to run in y
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/706da016ef0fae61a664)
 
-**Create Project**: `nim project create -s postman -i Blogs --language js`
+**Create Project**:
+```
+nim project create -s postman -i Blogs --language js
+```
 
-**Deploy Project**: `nim project deploy blogs`
+**Deploy Project**:
+```
+nim project deploy blogs
+```
 
 - You should see a project created locally on your machine in a directory called `blogs`.
 - In the root of the `blogs` directory, there is a Postman collection.
