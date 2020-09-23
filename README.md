@@ -150,6 +150,7 @@ always working as expected. You can add these scripts using the
 We want to make sure a 201 status code is returned for our POST.
 ```js
 // Begin Test - 201 Status
+var test_name = '200 Status?';
 pm.test(test_name, function () {
      pm.response.to.have.status(201);
 });
@@ -161,6 +162,7 @@ pm.test(test_name, function () {
 We want to make sure a 200 status code is returned for our GET requests.
 ```js
 // Begin Test - 200 Status
+var test_name = '200 Status?';
 pm.test(test_name, function () {
     pm.response.to.have.status(200);
 });
@@ -172,6 +174,7 @@ pm.test(test_name, function () {
 We want to make sure a 201 status code is returned for our PUT and DELETE.
 ```js
 // Begin Test - 204 Status
+var test_name = '200 Status?';
 pm.test(test_name, function () {
     pm.response.to.have.status(204);
 });
